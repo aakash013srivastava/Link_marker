@@ -1,20 +1,28 @@
 import {useState} from 'react'
 const AddLink = ({add})=>{
-    const [txt,setTxt] = useState('')
+    const [txt1,setTxt1] = useState('')
+    const [txt2,setTxt2] = useState('')
     const handleSubmit = (event)=>{
-        event.preventDefault();
-        console.log(txt);
-        add(txt);
-        setTxt('')
-        
-    }
+        event.preventDefault();       
+        add(txt1,txt2);
+        setTxt1('');
+        setTxt2('');
+   }
 
-    const handleChange = (event)=>{
-        setTxt(event.target.value)
+    const handleChange1 = (event)=>{
+        // console.log(event.target.value);
+        setTxt1(event.target.value)
+    }
+    const handleChange2 = (event)=>{
+        // console.log(event.target.value);
+        setTxt2(event.target.value)
     }
     return <div><form onSubmit={handleSubmit}>
+        <label>Add Link Marker:</label>
+        <input text={txt1} onChange={handleChange1} required/>
         <label>Add Link:</label>
-        <input text={txt} onChange={handleChange}/>
+        <input text={txt2} onChange={handleChange2} required/>
+        <button type="submit">Save</button>
     </form></div>
 
 

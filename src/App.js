@@ -6,16 +6,13 @@ function App() {
   
   const [list,setList] = useState([])
   
-  const appendList = (item)=>{
-    console.log(item)
-    setList([...list,item])
-    // console.log(list);
+  const appendList = (marker,link)=>{
+    setList([...list,{marker,link}])
+    
   }
   return (
     <div className="App">
-      
-      
-      <AddLink add={appendList}/>
+     <AddLink add={appendList}/>
       <ol>
         <ShowLink list={list} />
       </ol>
